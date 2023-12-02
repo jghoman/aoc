@@ -19,32 +19,17 @@ fn words_to_digit(orig: &str) -> Vec<u32> {
             // Check if start of word
             let substr = &orig[i..];
             // There are definitely better ways to do this, but I'm getting tired
-            if substr.starts_with("one") {
-                digits.push(1);
-            }
-            if substr.starts_with("two") {
-                digits.push(2);
-            }
-            if substr.starts_with("three") {
-                digits.push(3);
-            }
-            if substr.starts_with("four") {
-                digits.push(4);
-            }
-            if substr.starts_with("five") {
-                digits.push(5);
-            }
-            if substr.starts_with("six") {
-                digits.push(6);
-            }
-            if substr.starts_with("seven") {
-                digits.push(7);
-            }
-            if substr.starts_with("eight") {
-                digits.push(8);
-            }
-            if substr.starts_with("nine") {
-                digits.push(9);
+            match true {
+                _ if substr.starts_with("one") => digits.push(1),
+                _ if substr.starts_with("two") => digits.push(2),
+                _ if substr.starts_with("three") => digits.push(3),
+                _ if substr.starts_with("four") => digits.push(4),
+                _ if substr.starts_with("five") => digits.push(5),
+                _ if substr.starts_with("six") => digits.push(6),
+                _ if substr.starts_with("seven") => digits.push(7),
+                _ if substr.starts_with("eight") => digits.push(8),
+                _ if substr.starts_with("nine") => digits.push(9),
+                _ => (), // Do nothing if no match
             }
         }
 
