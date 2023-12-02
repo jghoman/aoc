@@ -46,7 +46,7 @@ fn parse_line(orig: &str) -> u32 {
 fn part1(input: &str) -> String {
     let result = input
         .lines()
-        .map(|l| parse_line(l))
+        .map(parse_line)
         .sum::<u32>();
     return result.to_string();
 }
