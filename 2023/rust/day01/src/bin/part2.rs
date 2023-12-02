@@ -45,8 +45,7 @@ fn parse_line(orig: &str) -> u32 {
 
 fn part1(input: &str) -> String {
     let result = input
-        .split('\n')
-        .into_iter()
+        .lines()
         .map(|l| parse_line(l))
         .sum::<u32>();
     return result.to_string();
