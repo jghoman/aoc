@@ -4,7 +4,7 @@ fn main() {
     dbg!(output);
 }
 
-fn words_to_digit(orig: &str) -> Vec<u32> {
+fn parse_line(orig: &str) -> u32 {
     let mut digits:Vec<u32> = Vec::new();
 
     let mut i = 0;
@@ -37,13 +37,8 @@ fn words_to_digit(orig: &str) -> Vec<u32> {
     }
 
 
-    digits
-}
-
-fn parse_line(l: &str) -> u32 {
-    let nums = words_to_digit(l);
-    let first = nums.first().expect("Should have gotten a number");
-    let last = nums.last().expect("Should have gotten a second number");
+    let first = digits.first().expect("Should have gotten a number");
+    let last = digits.last().expect("Should have gotten a second number");
 
     return first * 10 + last;
 }
