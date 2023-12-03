@@ -5,7 +5,7 @@ fn main() {
 }
 
 fn parse_line(orig: &str) -> u32 {
-    let mut digits:Vec<u32> = Vec::new();
+    let mut digits: Vec<u32> = Vec::new();
 
     let mut i = 0;
 
@@ -14,7 +14,6 @@ fn parse_line(orig: &str) -> u32 {
         let c = orig.chars().nth(i).expect("Should be a character");
         if c.is_ascii_digit() {
             digits.push(c.to_digit(10).expect("Should be parseable"));
-
         } else {
             // Check if start of word
             let substr = &orig[i..];
@@ -36,7 +35,6 @@ fn parse_line(orig: &str) -> u32 {
         i = i + 1;
     }
 
-
     let first = digits.first().expect("Should have gotten a number");
     let last = digits.last().expect("Should have gotten a second number");
 
@@ -44,10 +42,7 @@ fn parse_line(orig: &str) -> u32 {
 }
 
 fn part1(input: &str) -> String {
-    let result = input
-        .lines()
-        .map(parse_line)
-        .sum::<u32>();
+    let result = input.lines().map(parse_line).sum::<u32>();
     return result.to_string();
 }
 
@@ -83,6 +78,5 @@ treb7uchet"
         let input = "eightwothree".to_string();
 
         assert_eq!("83", part1(&input));
-
     }
 }
