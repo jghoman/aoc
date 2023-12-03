@@ -45,7 +45,11 @@ fn parse_line(line: &str) -> u32 {
         })
         .any(|i| i == 0);
 
-    if any_bad { 0 } else { game_num }
+    if any_bad {
+        0
+    } else {
+        game_num
+    }
 }
 
 fn part1(input: &str) -> String {
