@@ -2,7 +2,7 @@ use std::collections::HashSet;
 
 use nom::{
     bytes::complete::tag,
-    character::complete::{line_ending, space1, u32, multispace0},
+    character::complete::{line_ending, multispace0, space1, u32},
     multi::separated_list1,
     sequence::terminated,
     IResult,
@@ -55,14 +55,16 @@ fn num_matches(s: Scratchcard) -> Vec<u32> {
 
 fn part1(input: &str) -> String {
     let (_, scratchcards) = parse_scratchcards(input).expect("Should parse");
-    
-    scratchcards.into_iter().map(num_matches)
-    //.inspect(|p| println!("{:?}", p))
-    .map(|p| p.len() as u32)
-    .filter(|&p| p > 0)
-    .map(|p| 2_i32.pow(p - 1) as u32)
-    .sum::<u32>()
-    .to_string()
+
+    scratchcards
+        .into_iter()
+        .map(num_matches)
+        //.inspect(|p| println!("{:?}", p))
+        .map(|p| p.len() as u32)
+        .filter(|&p| p > 0)
+        .map(|p| 2_i32.pow(p - 1) as u32)
+        .sum::<u32>()
+        .to_string()
 }
 
 #[cfg(test)]
