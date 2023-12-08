@@ -5,3 +5,4 @@ members = ["day*"]
 
 [workspace.dependencies]
 itertools = "0.12.0"
+nom = "7.1.3"
