@@ -123,13 +123,12 @@ fn part2(input: &str) -> String {
         })
         .collect();
 
-    let mut collated: Vec<Vec<CardAndCount>> = Vec::new();
+    let mut count = 0_u32;
 
-    let values: Vec<CardAndCount> = card_count_map.values().cloned().collect();
+    let mut result = card_count_map.values().cloned().collect::<Vec<_>>();
 
-    let mut result = values;
     loop {
-        collated.push(result.clone());
+        count += result.len() as u32;
         let new_results = copies_from_cards(&result, &card_count_map);
 
         if new_results.len() == 0 {
@@ -138,7 +137,7 @@ fn part2(input: &str) -> String {
         result = new_results;
     }
 
-    collated.iter().flatten().count().to_string()
+    count.to_string()
 }
 
 #[cfg(test)]
